@@ -1,0 +1,15 @@
+Analyze this support ticket and classify it. Return JSON only.
+
+Subject: {subject}
+From: {from_email}
+Body: {body}
+
+Return this exact JSON structure:
+{{
+  "category": "<billing|technical|account|feature_request|bug_report|general>",
+  "priority": "<low|medium|high|critical>",
+  "sentiment": "<positive|neutral|negative>",
+  "suggested_team": "<billing|engineering|support|sales|management>",
+  "needs_human": <true|false>,
+  "confidence": <0.0 to 1.0>
+}}

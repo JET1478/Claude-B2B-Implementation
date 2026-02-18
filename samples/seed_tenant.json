@@ -1,0 +1,12 @@
+{
+  "name": "Demo Company",
+  "slug": "demo-company",
+  "allowed_domains": "demo.com,example.com",
+  "max_runs_per_day": 100,
+  "max_tokens_per_day": 100000,
+  "max_items_per_minute": 5,
+  "support_workflow_enabled": true,
+  "sales_workflow_enabled": true,
+  "autosend_enabled": false,
+  "confidence_threshold": 0.85
+}

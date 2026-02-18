@@ -1,0 +1,49 @@
+# Support Triage Workflow Configuration
+# Applied per-tenant via admin UI or API
+
+routing:
+  # Map categories to assigned teams
+  team_map:
+    billing: billing-team
+    technical: engineering
+    account: account-management
+    feature_request: product
+    bug_report: engineering
+    general: support
+
+  # Auto-tags based on classification
+  auto_tags:
+    priority:
+      critical: ["urgent", "sla-1h"]
+      high: ["high-priority", "sla-4h"]
+      medium: ["standard"]
+      low: ["low-priority"]
+    sentiment:
+      negative: ["unhappy-customer", "review-needed"]
+      positive: ["happy-customer"]
+
+  # SLA timers (hours) by priority
+  sla_hours:
+    critical: 1
+    high: 4
+    medium: 24
+    low: 72
+
+  # Auto-escalate if classification confidence is below this threshold
+  escalate_confidence_below: 0.5
+
+# Safety settings (override tenant defaults)
+autosend:
+  enabled: false  # ALWAYS default to false
+  confidence_threshold: 0.90
+  excluded_categories:
+    - billing
+    - account
+
+# Notification preferences
+notifications:
+  slack_channel: "#support-tickets"
+  notify_on:
+    - ticket_created
+    - escalated
+    - high_priority

@@ -1,0 +1,18 @@
+Draft a professional reply for this support ticket.
+
+Subject: {subject}
+From: {from_name}
+Category: {category}
+Priority: {priority}
+Sentiment: {sentiment}
+
+Customer Message:
+{body}
+
+Provide your response in this JSON format:
+{{
+  "draft_reply": "<the email reply to send to the customer>",
+  "internal_notes": "<notes for the support team>",
+  "recommended_action": "<next step: respond|escalate|close|follow_up>",
+  "follow_up_questions": ["<question 1 if info is missing>", "<question 2>"]
+}}

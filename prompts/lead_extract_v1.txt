@@ -1,0 +1,18 @@
+Analyze this sales lead and extract structured information. Return JSON only.
+
+Name: {name}
+Email: {email}
+Company: {company}
+Phone: {phone}
+Message: {message}
+Source: {source}
+
+Return this exact JSON structure:
+{{
+  "company_size_cue": "<startup|smb|mid|enterprise|unknown>",
+  "intent_classification": "<purchase|demo|pricing|partnership|support|general|spam>",
+  "urgency": "<low|medium|high>",
+  "industry": "<technology|finance|healthcare|retail|manufacturing|other>",
+  "spam_score": <0.0 to 1.0, where 1.0 is definitely spam>,
+  "confidence": <0.0 to 1.0>
+}}

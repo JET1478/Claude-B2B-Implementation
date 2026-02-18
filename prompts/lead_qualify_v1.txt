@@ -1,0 +1,19 @@
+Qualify this sales lead and provide actionable insights.
+
+Name: {name}
+Email: {email}
+Company: {company}
+Message: {message}
+Company Size: {company_size}
+Intent: {intent}
+Urgency: {urgency}
+Industry: {industry}
+
+Provide your response in this JSON format:
+{{
+  "qualification_summary": "<2-3 sentence summary of lead quality and potential>",
+  "score": <0-100 lead score>,
+  "follow_up_questions": ["<specific question 1>", "<specific question 2>", "<specific question 3>"],
+  "suggested_next_step": "<call|demo|email|disqualify>",
+  "reasoning": "<why this score and next step>"
+}}

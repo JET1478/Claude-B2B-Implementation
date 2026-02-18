@@ -1,0 +1,12 @@
+{
+  "subject": "Unable to access my account after password reset",
+  "body": "Hi,\n\nI've been trying to log into my account for the past 2 hours after resetting my password. Each time I try, I get an error saying 'Invalid credentials'. I've tried resetting my password 3 times now and nothing works.\n\nThis is really frustrating because I have a client presentation tomorrow and all my files are in the platform. I need this resolved ASAP.\n\nMy account email is john.smith@acmecorp.com\n\nThanks,\nJohn Smith\nSenior Project Manager, Acme Corp",
+  "from_email": "john.smith@acmecorp.com",
+  "from_name": "John Smith",
+  "source": "webhook",
+  "external_id": "ZEN-12345",
+  "metadata": {
+    "origin": "zendesk",
+    "account_tier": "enterprise"
+  }
+}

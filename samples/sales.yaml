@@ -1,0 +1,63 @@
+# Sales Lead Qualification Workflow Configuration
+# Applied per-tenant via admin UI or API
+
+qualification:
+  # Minimum score to consider qualified
+  qualified_threshold: 40
+
+  # Spam score above which to auto-disqualify
+  spam_threshold: 0.8
+
+  # Score weights (used for display; actual scoring done by Claude)
+  scoring_factors:
+    company_size:
+      enterprise: 30
+      mid: 20
+      smb: 10
+      startup: 5
+    intent:
+      purchase: 25
+      demo: 20
+      pricing: 15
+      partnership: 10
+      general: 5
+    urgency:
+      high: 20
+      medium: 10
+      low: 5
+
+  # Next step mapping
+  next_step_rules:
+    score_above_70: "call"
+    score_above_50: "demo"
+    score_above_30: "email"
+    score_below_30: "disqualify"
+
+# CRM settings
+crm:
+  create_contact: true
+  create_deal: true
+  deal_pipeline: "default"
+  deal_stages:
+    qualified: "qualifiedtobuy"
+    unqualified: "appointmentscheduled"
+
+# Follow-up settings
+follow_up:
+  enabled: true
+  initial_delay_hours: 2
+  follow_up_delay_hours: 72
+  max_follow_ups: 2
+
+# Safety
+autosend:
+  enabled: false  # ALWAYS default to false
+  confidence_threshold: 0.85
+
+# Notifications
+notifications:
+  slack_channel: "#sales-leads"
+  notify_on:
+    - lead_created
+    - lead_qualified
+    - high_score_lead
