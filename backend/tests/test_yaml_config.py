@@ -91,11 +91,11 @@ class TestYAMLSafety:
     """Ensure YAML configs don't contain dangerous patterns."""
 
     def test_no_yaml_injection(self):
-        """Verify safe_load handles safely."""
+        """Verify safe_load rejects dangerous YAML tags."""
         dangerous = "!!python/object/apply:os.system ['echo pwned']"
-        # yaml.safe_load should not execute this
-        result = yaml.safe_load(dangerous)
-        assert result is not None  # parsed as string, not executed
+        # yaml.safe_load should reject this with ConstructorError, not execute it
+        with pytest.raises(yaml.YAMLError):
+            yaml.safe_load(dangerous)
 
     def test_invalid_yaml_handled(self):
         """Verify invalid YAML is caught gracefully."""
