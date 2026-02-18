@@ -1,6 +1,3 @@
-version: "3.9"
-
-# Root-level compose that delegates to infra/docker-compose.yml
 # Run from project root: docker compose up --build
 
 services:
