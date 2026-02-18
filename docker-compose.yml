@@ -48,6 +48,7 @@ services:
         condition: service_healthy
     volumes:
       - ./prompts:/prompts:ro
+      - ./samples:/samples:ro
     command: >
       sh -c "
         cd /app &&
