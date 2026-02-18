@@ -75,7 +75,7 @@ def process_lead(tenant_id: str, lead_id: str, run_id: str):
                 session, tenant_id, run_id,
                 action="lead_disqualified", workflow="lead_qualify", step="spam_check",
                 reason_code="high_spam_score",
-                metadata={"spam_score": lead.spam_score},
+                extra_data={"spam_score": lead.spam_score},
             )
             update_run_status(session, run_id, "completed",
                               completed_at=datetime.utcnow(),
@@ -112,7 +112,7 @@ def process_lead(tenant_id: str, lead_id: str, run_id: str):
                 session, tenant_id, run_id,
                 action="crm_updated", workflow="lead_qualify", step="crm",
                 reason_code="hubspot_sync",
-                metadata={"contact_id": lead.crm_contact_id, "deal_id": lead.crm_deal_id},
+                extra_data={"contact_id": lead.crm_contact_id, "deal_id": lead.crm_deal_id},
             )
             session.commit()
 

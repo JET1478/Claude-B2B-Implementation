@@ -46,7 +46,7 @@ class AuditLogResponse(BaseModel):
     input_summary: Optional[str]
     output_summary: Optional[str]
     reason_code: Optional[str]
-    metadata: Optional[dict]
+    extra_data: Optional[dict]
     actor: str
     timestamp: datetime
 

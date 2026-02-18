@@ -36,7 +36,7 @@ class AuditLog(Base):
     input_summary: Mapped[str | None] = mapped_column(Text, nullable=True)
     output_summary: Mapped[str | None] = mapped_column(Text, nullable=True)
     reason_code: Mapped[str | None] = mapped_column(String(100), nullable=True)
-    metadata: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+    extra_data: Mapped[dict | None] = mapped_column("metadata", JSONB, nullable=True)
 
     # Actor
     actor: Mapped[str] = mapped_column(String(100), default="system")  # system, admin, webhook

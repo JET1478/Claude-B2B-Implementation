@@ -72,7 +72,7 @@ def create_audit_entry(
     input_summary: str | None = None,
     output_summary: str | None = None,
     reason_code: str | None = None,
-    metadata: dict | None = None,
+    extra_data: dict | None = None,
 ):
     """Create an audit log entry."""
     entry = AuditLog(
@@ -89,7 +89,7 @@ def create_audit_entry(
         input_summary=input_summary[:500] if input_summary else None,
         output_summary=output_summary[:500] if output_summary else None,
         reason_code=reason_code,
-        metadata=metadata,
+        extra_data=extra_data,
         actor="worker",
     )
     session.add(entry)

@@ -116,7 +116,7 @@ def process_support_ticket(tenant_id: str, ticket_id: str, run_id: str):
                 session, tenant_id, run_id,
                 action="email_sent", workflow="support_triage", step="autosend",
                 reason_code="confidence_above_threshold",
-                metadata={"confidence": ticket.classification_confidence},
+                extra_data={"confidence": ticket.classification_confidence},
             )
         else:
             ticket.status = "draft_ready"
